@@ -50,9 +50,8 @@
     },
     {
       "nickname": "TikTok",
-      "type": "direct",
+      "type": "apkmirror",
       "data": {
-        "source": "apkmirror",
         "org": "tiktok-pte-ltd",
         "repo": "tik-tok",
         "version"： "",
@@ -93,9 +92,8 @@
     },
     {
       "nickname": "YouTube",
-      "type": "direct",
+      "type": "apkmirror",
       "data": {
-        "source": "apkmirror",
         "org": "google-inc",
         "repo": "youtube",
         "version"： "",
