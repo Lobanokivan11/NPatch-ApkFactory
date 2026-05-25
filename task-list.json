@@ -53,8 +53,7 @@
       "type": "apkmirror",
       "data": {
         "org": "tiktok-pte-ltd",
-        "repo": "tik-tok",
-        "arch": "arm64-v8a"
+        "repo": "tik-tok"
       }
     },
     {
@@ -94,8 +93,7 @@
       "type": "apkmirror",
       "data": {
         "org": "google-inc",
-        "repo": "youtube",
-        "arch": "arm64-v8a"
+        "repo": "youtube"
       }
     }
   ]
