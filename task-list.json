@@ -54,7 +54,6 @@
       "data": {
         "org": "tiktok-pte-ltd",
         "repo": "tik-tok",
-        "version"： "",
         "arch": "arm64-v8a"
       }
     },
@@ -96,7 +95,6 @@
       "data": {
         "org": "google-inc",
         "repo": "youtube",
-        "version"： "",
         "arch": "arm64-v8a"
       }
     }
