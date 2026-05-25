@@ -47,6 +47,7 @@ jobs:
           org: '${{ matrix.data.org }}'
           repo: '${{ matrix.data.repo }}'
           version: '${{ matrix.data.version }}'
+          arch: '${{ matrix.data.arch }}'
           filename: 'temp.apk'
       - name: "Download Apk (from WanDouJia)"
         if: ${{ matrix.type == 'wandoujia' }}
