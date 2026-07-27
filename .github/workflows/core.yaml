@@ -89,7 +89,7 @@ jobs:
           cp temp.apk $new_filename.apk
           make_lspatch_apk() {
             echo "::group:: 点我展开 当前步骤为通过 $1 打包"
-            java -jar patcher/$1.jar -v --manager -l 2 -o "$1" $new_filename.apk
+            java -jar patcher/$1.jar --keystore sign.keystore 369852 lob 369852 --useMicroG true -v --manager -l 2 -o "$1" $new_filename.apk
             (
               cd $1
               mv -v $(ls) $new_filename-$1.apk
@@ -97,8 +97,6 @@ jobs:
             )
             echo "::endgroup::"
           }
-          make_lspatch_apk lspatch
-          make_lspatch_apk jm-lspatch
           make_lspatch_apk npatch
 
   job_release:
@@ -123,7 +121,7 @@ jobs:
           deleteOnlyFromDrafts: false
       - run: |
           cat > release.txt << EOF
-          该CI构建于 $(TZ=Asia/Shanghai date +"%Y.%m.%d %H:%M.%S")
+          该CI构建于 $(TZ=Europe/Minsk date +"%Y.%m.%d %H:%M.%S")
           管理器已展示在 readme.md 内，请自行下载对应的管理器
           EOF
       - name: "Tag Repo"

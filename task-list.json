@@ -1,99 +1,11 @@
 {
   "include": [
     {
-      "nickname": "Alipay",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "44428"
-      }
-    },
-    {
-      "nickname": "WeChat",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "40413"
-      }
-    },
-    {
-      "nickname": "Soul",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "1578290"
-      }
-    },
-    {
-      "nickname": "Douyin",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "1576137"
-      }
-    },
-    {
-      "nickname": "DouyinLite",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "1576137"
-      }
-    },
-    {
-      "nickname": "QQ",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "40439"
-      }
-    },
-    {
-      "nickname": "TikTok",
+      "nickname": "SESAME",
       "type": "apkmirror",
       "data": {
-        "org": "tiktok-pte-ltd",
-        "repo": "tik-tok"
-      }
-    },
-    {
-      "nickname": "RedNote",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "61278"
-      }
-    },
-    {
-      "nickname": "KwaiShou",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "50615"
-      }
-    },
-    {
-      "nickname": "CamScanner",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "48524"
-      }
-    },
-    {
-      "nickname": "Bilibili",
-      "type": "direct",
-      "data": {
-        "source": "vivo",
-        "value": "48666"
-      }
-    },
-    {
-      "nickname": "YouTube",
-      "type": "apkmirror",
-      "data": {
-        "org": "google-inc",
-        "repo": "youtube"
+        "org": "sesame-crew",
+        "repo": "sesame-shortcuts"
       }
     }
   ]
