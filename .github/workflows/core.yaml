@@ -90,7 +90,7 @@ jobs:
           sudo cp provider/bcprov-jdk18on-1.85.jar $JAVA_HOME/lib/
           echo "::group:: 点我展开 当前步骤为打包"
           java -Djava.security.properties==custom_java.security \
-            -cp "$JAVA_HOME/lib/bcprov-jdk18on-1.78.1.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
+            -cp "$JAVA_HOME/lib/bcprov-jdk18on-1.85.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
             $new_filename.apk --keystore sign.bks 369852 lob 369852 \
             --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR"
           (
