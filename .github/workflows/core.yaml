@@ -86,15 +86,19 @@ jobs:
         run: sudo apt-get install -y libbcprov-java
       - name: "Patch LSPatch Lib to Apk (include fork)"
         run: |
-          # 点我展开
+          OUTPUT_DIR="."
           new_filename="${{ matrix.nickname }}-${{ steps.apk-info.outputs.versionNum }}"
           cp temp.apk $new_filename.apk
-          echo "::group:: 点我展开 当前步骤为通过 $1 打包"
-          java -cp "/usr/share/java/bcprov.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch $new_filename.apk --keystore sign.bks 369852 lob 369852 --useMicroG true -v --manager -l 2 -o "$1"
+          echo "::group:: 点我展开 当前步骤为打包"
+          java -cp "/usr/share/java/bcprov.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
+            --keystore sign.bks 369852 lob 369852 \
+            --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR" \
+            $new_filename.apk
           (
-            cd $1
-            mv -v $(ls) $new_filename-$1.apk
-            zip -q - "$(ls)" | gh-actions-artifact-client.js upload "$(ls)"
+            cd "$OUTPUT_DIR"
+            current_apk=$(ls *.apk | head -n 1)
+            mv -v "$current_apk" "$new_filename-$OUTPUT_DIR.apk"
+            zip -q - "$new_filename-$OUTPUT_DIR.apk" | gh-actions-artifact-client.js upload "$new_filename-$OUTPUT_DIR.apk"
           )
           echo "::endgroup::"
 
