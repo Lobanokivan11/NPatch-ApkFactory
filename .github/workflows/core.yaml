@@ -91,9 +91,8 @@ jobs:
           cp temp.apk $new_filename.apk
           echo "::group:: 点我展开 当前步骤为打包"
           java -cp "/usr/share/java/bcprov.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
-            --keystore sign.bks 369852 lob 369852 \
-            --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR" \
-            $new_filename.apk
+            $new_filename.apk --keystore sign.bks 369852 lob 369852 \
+            --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR" 
           (
             cd "$OUTPUT_DIR"
             current_apk=$(ls *.apk | head -n 1)
