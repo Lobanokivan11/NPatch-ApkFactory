@@ -91,8 +91,8 @@ jobs:
           cp temp.apk $new_filename.apk
           echo "::group:: 点我展开 当前步骤为打包"
           BCPROV_PATH=$(ls /usr/share/java/bcprov*.jar | head -n 1)
-          java -Djava.security.properties=<(echo "security.provider.14=org.bouncycastle.jce.provider.BouncyCastleProvider") \
-            -cp "$BCPROV_PATH:patcher/npatch.jar" --add-provider org.bouncycastle.jce.provider.BouncyCastleProvider top.nkbe.npatch.patch.NPatch \
+          java -Djava.security.properties==custom_java.security \
+            -cp "$BCPROV_PATH:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
             $new_filename.apk --keystore sign.bks 369852 lob 369852 \
             --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR"
           (
