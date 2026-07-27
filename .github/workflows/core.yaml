@@ -89,7 +89,7 @@ jobs:
           cp temp.apk $new_filename.apk
           make_lspatch_apk() {
             echo "::group:: 点我展开 当前步骤为通过 $1 打包"
-            java -jar patcher/$1.jar $new_filename.apk --keystore sign.keystore 369852 lob 369852 --useMicroG true -v --manager -l 2 -o "$1"
+            java -jar patcher/$1.jar $new_filename.apk --keystore sign.bks 369852 lob 369852 --useMicroG true -v --manager -l 2 -o "$1"
             (
               cd $1
               mv -v $(ls) $new_filename-$1.apk
