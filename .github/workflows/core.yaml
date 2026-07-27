@@ -104,7 +104,6 @@ jobs:
 
   job_release:
     needs: "job-patch"
-    if: ${{ inputs.is-release }}
     name: "Release All"
     runs-on: "ubuntu-latest"
     steps:
