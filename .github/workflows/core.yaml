@@ -90,9 +90,11 @@ jobs:
           new_filename="${{ matrix.nickname }}-${{ steps.apk-info.outputs.versionNum }}"
           cp temp.apk $new_filename.apk
           echo "::group:: 点我展开 当前步骤为打包"
-          java -cp "/usr/share/java/bcprov.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
+          BCPROV_PATH=$(ls /usr/share/java/bcprov*.jar | head -n 1)
+          java -Djava.security.properties=<(echo "security.provider.14=org.bouncycastle.jce.provider.BouncyCastleProvider") \
+            -cp "$BCPROV_PATH:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
             $new_filename.apk --keystore sign.bks 369852 lob 369852 \
-            --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR" 
+            --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR"
           (
             cd "$OUTPUT_DIR"
             current_apk=$(ls *.apk | head -n 1)
@@ -100,6 +102,7 @@ jobs:
             zip -q - "$new_filename-$OUTPUT_DIR.apk" | gh-actions-artifact-client.js upload "$new_filename-$OUTPUT_DIR.apk"
           )
           echo "::endgroup::"
+
 
   job_release:
     needs: "job-patch"
