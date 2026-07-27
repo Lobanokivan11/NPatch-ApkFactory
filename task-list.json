@@ -1,7 +1,7 @@
 {
   "include": [
     {
-      "nickname": "SESAME",
+      "nickname": "SESAME-SEARCH",
       "type": "apkmirror",
       "data": {
         "org": "sesame-crew",
