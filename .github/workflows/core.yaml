@@ -82,17 +82,14 @@ jobs:
         #版本号：${{ steps.apk-info.outputs.versionNum }}
       - name: "Install Artifact Handle"
         uses: "lhotari/gh-actions-artifact-client@v2"
-      - name: "Install Bounty Castle (fixes sign)"
-        run: sudo apt-get install -y libbcprov-java
       - name: "Patch LSPatch Lib to Apk (include fork)"
         run: |
           OUTPUT_DIR="."
           new_filename="${{ matrix.nickname }}-${{ steps.apk-info.outputs.versionNum }}"
           cp temp.apk $new_filename.apk
           echo "::group:: 点我展开 当前步骤为打包"
-          BCPROV_PATH=$(ls /usr/share/java/bcprov*.jar | head -n 1)
           java -Djava.security.properties==custom_java.security \
-            -cp "$BCPROV_PATH:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
+            -cp "provider/bcprov-jdk18on-1.85.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
             $new_filename.apk --keystore sign.bks 369852 lob 369852 \
             --useMicroG true -v --manager -l 2 -o "$OUTPUT_DIR"
           (
