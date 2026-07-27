@@ -136,6 +136,6 @@ jobs:
           tag_name: "CI-APKs"
           files: |
             apks/*
-          prerelease: true
+          prerelease: false
           generate_release_notes: true
           body_path: "release.txt"
