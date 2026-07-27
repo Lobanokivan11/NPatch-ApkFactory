@@ -82,22 +82,21 @@ jobs:
         #版本号：${{ steps.apk-info.outputs.versionNum }}
       - name: "Install Artifact Handle"
         uses: "lhotari/gh-actions-artifact-client@v2"
+      - name: "Install Bounty Castle (fixes sign)"
+        run: sudo apt-get install -y libbcprov-java
       - name: "Patch LSPatch Lib to Apk (include fork)"
         run: |
           # 点我展开
           new_filename="${{ matrix.nickname }}-${{ steps.apk-info.outputs.versionNum }}"
           cp temp.apk $new_filename.apk
-          make_lspatch_apk() {
-            echo "::group:: 点我展开 当前步骤为通过 $1 打包"
-            java -jar patcher/$1.jar $new_filename.apk --keystore sign.bks 369852 lob 369852 --useMicroG true -v --manager -l 2 -o "$1"
-            (
-              cd $1
-              mv -v $(ls) $new_filename-$1.apk
-              zip -q - "$(ls)" | gh-actions-artifact-client.js upload "$(ls)"
-            )
-            echo "::endgroup::"
-          }
-          make_lspatch_apk npatch
+          echo "::group:: 点我展开 当前步骤为通过 $1 打包"
+          java -cp "/usr/share/java/bcprov.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch $new_filename.apk --keystore sign.bks 369852 lob 369852 --useMicroG true -v --manager -l 2 -o "$1"
+          (
+            cd $1
+            mv -v $(ls) $new_filename-$1.apk
+            zip -q - "$(ls)" | gh-actions-artifact-client.js upload "$(ls)"
+          )
+          echo "::endgroup::"
 
   job_release:
     needs: "job-patch"
