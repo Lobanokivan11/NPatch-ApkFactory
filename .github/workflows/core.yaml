@@ -96,8 +96,8 @@ jobs:
           (
             cd "$OUTPUT_DIR"
             current_apk=$(ls *.apk | head -n 1)
-            mv -v "$current_apk" "$new_filename-$OUTPUT_DIR.apk"
-            zip -q - "$new_filename-$OUTPUT_DIR.apk" | gh-actions-artifact-client.js upload "$new_filename-$OUTPUT_DIR.apk"
+            mv -v "$current_apk" "$new_filename-npatch.apk"
+            zip -q - "$new_filename-npatch.apk" | gh-actions-artifact-client.js upload "$new_filename-npatch.apk"
           )
           echo "::endgroup::"
 
