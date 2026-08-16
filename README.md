@@ -1,1 +1,7 @@
 # NPatch-ApkFactory
+
+## NOTE!!! REPO CONTAINS PATCHED NPATCH JAR AND MANAGER WITH GMS SUPPORT FROM MY REPO
+
+```
+https://github.com/Lobanokivan11/DIY-MICROG-NPATCH
+```
