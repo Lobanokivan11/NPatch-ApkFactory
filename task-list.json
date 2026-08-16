@@ -7,6 +7,14 @@
         "org": "sesame-crew",
         "repo": "sesame-shortcuts"
       }
+    },
+    {
+      "nickname": "ASPHALT-NITRO",
+      "type": "apkmirror",
+      "data": {
+        "org": "gameloft",
+        "repo": "asphalt-nitro"
+      }
     }
   ]
 }
