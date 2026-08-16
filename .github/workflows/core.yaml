@@ -91,7 +91,7 @@ jobs:
           echo "::group:: 点我展开 当前步骤为打包"
           java -Djava.security.properties==custom_java.security \
             -cp "$JAVA_HOME/lib/bcprov-jdk15to18-1.73.jar:patcher/npatch.jar" top.nkbe.npatch.patch.NPatch \
-            $new_filename.apk --keystore sign.bks 369852 lob 369852 \
+            $new_filename.apk --npatch-keystore \
             --useMicroG -v --manager -l 2 -o "$OUTPUT_DIR"
           (
             cd "$OUTPUT_DIR"
