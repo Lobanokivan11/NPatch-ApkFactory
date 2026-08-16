@@ -9,11 +9,11 @@
       }
     },
     {
-      "nickname": "ASPHALT-NITRO",
+      "nickname": "NOVA-LAUNCHER",
       "type": "apkmirror",
       "data": {
-        "org": "gameloft",
-        "repo": "asphalt-nitro"
+        "org": "instabridge-sweden-ab",
+        "repo": "nova-launcher"
       }
     }
   ]
