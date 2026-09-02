@@ -6,7 +6,7 @@
       "data": {
         "org": "sesame-crew",
         "repo": "sesame-shortcuts",
-        "version": "3.7.0"
+        "version": "latest"
       }
     },
     {
@@ -15,7 +15,7 @@
       "data": {
         "org": "instabridge-sweden-ab",
         "repo": "nova-launcher",
-        "version": "8.8.8"
+        "version": "latest"
       }
     }
   ]
