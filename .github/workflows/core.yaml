@@ -43,8 +43,8 @@ jobs:
       - name: "Download Apk (from APKMirror)"
         if: ${{ matrix.type == 'apkmirror' }}
         run: |
-          npm install apkmirror-downloader
-          node ./node_modules/apkmirror-downloader/dist/index.js download \
+          npm install @nirewen/apkcombo-downloader
+          node ./node_modules/@nirewen/apkcombo-downloader/dist/index.js download \
             --org "${{ matrix.data.org }}" \
             --repo "${{ matrix.data.repo }}" \
             --version "${{ matrix.data.version }}" \
