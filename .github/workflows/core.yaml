@@ -42,14 +42,13 @@ jobs:
           distribution: "liberica"
       - name: "Download Apk (from APKMirror)"
         if: ${{ matrix.type == 'apkmirror' }}
-        run: |
-          npm install @nirewen/apkcombo-downloader
-          node ./node_modules/@nirewen/apkcombo-downloader/dist/index.js download \
-            --org "${{ matrix.data.org }}" \
-            --repo "${{ matrix.data.repo }}" \
-            --version "${{ matrix.data.version }}" \
-            --arch "${{ matrix.data.arch }}" \
-            --output "temp.apk"
+        uses: "Kingsman44/gh-apkmirror-dl@v2.0"
+        with:
+          org: '${{ matrix.data.org }}'
+          repo: '${{ matrix.data.repo }}'
+          version: '${{ matrix.data.version }}'
+          arch: '${{ matrix.data.arch }}'
+          filename: 'temp.apk'
       - name: "Download Apk (from WanDouJia)"
         if: ${{ matrix.type == 'wandoujia' }}
         run: |
