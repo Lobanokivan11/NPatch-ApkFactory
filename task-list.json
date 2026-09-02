@@ -2,19 +2,19 @@
   "include": [
     {
       "nickname": "SESAME-SEARCH",
-      "type": "apkmirror",
+      "type": "direct",
       "data": {
-        "org": "sesame-crew",
-        "repo": "sesame-shortcuts",
+        "source": "apkpure",
+        "value": "ninja.sesame.app.edge",
         "version": "latest"
       }
     },
     {
       "nickname": "NOVA-LAUNCHER",
-      "type": "apkmirror",
+      "type": "direct",
       "data": {
-        "org": "instabridge-sweden-ab",
-        "repo": "nova-launcher",
+        "source": "apkpure",
+        "value": "com.teslacoilsw.launcher",
         "version": "latest"
       }
     }
