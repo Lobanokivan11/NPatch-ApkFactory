@@ -5,7 +5,8 @@
       "type": "apkmirror",
       "data": {
         "org": "sesame-crew",
-        "repo": "sesame-shortcuts"
+        "repo": "sesame-shortcuts",
+        "version": "latest"
       }
     },
     {
@@ -13,7 +14,8 @@
       "type": "apkmirror",
       "data": {
         "org": "instabridge-sweden-ab",
-        "repo": "nova-launcher"
+        "repo": "nova-launcher",
+        "version": "latest"
       }
     }
   ]
