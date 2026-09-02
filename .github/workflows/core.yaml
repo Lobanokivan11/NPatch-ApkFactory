@@ -45,12 +45,19 @@ jobs:
         run: |
           npm install apkmirror-downloader
           node -e "
-          const { Downloader } = require('apkmirror-downloader');
-          const dl = new Downloader();
-          
           async function run() {
             try {
+              console.log('ESM Initializing...');
+              const module = await import('apkmirror-downloader');
+              const DownloaderClass = module.Downloader || module.default?.Downloader || module.default;
+              
+              if (!DownloaderClass) {
+                throw new Error('Downloader Module not found.');
+              }
+              
+              const dl = new DownloaderClass();
               console.log('Downloading...');
+              
               await dl.download({
                 org: '${{ matrix.data.org }}',
                 repo: '${{ matrix.data.repo }}',
@@ -58,7 +65,8 @@ jobs:
                 arch: '${{ matrix.data.arch }}',
                 output: 'temp.apk'
               });
-              console.log('Downloaded succesfully');
+              
+              console.log('Downloaded Succesfully');
             } catch (err) {
               console.error('Error:', err);
               process.exit(1);
@@ -66,6 +74,7 @@ jobs:
           }
           run();
           "
+
       - name: "Download Apk (from WanDouJia)"
         if: ${{ matrix.type == 'wandoujia' }}
         run: |
