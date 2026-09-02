@@ -43,12 +43,29 @@ jobs:
       - name: "Download Apk (from APKMirror)"
         if: ${{ matrix.type == 'apkmirror' }}
         run: |
-          npx apkmirror-downloader download \
-            --org "${{ matrix.data.org }}" \
-            --repo "${{ matrix.data.repo }}" \
-            --version "${{ matrix.data.version }}" \
-            --arch "${{ matrix.data.arch }}" \
-            --output "temp.apk"
+          npm install apkmirror-downloader
+          node -e "
+          const { Downloader } = require('apkmirror-downloader');
+          const dl = new Downloader();
+          
+          async function run() {
+            try {
+              console.log('Downloading...');
+              await dl.download({
+                org: '${{ matrix.data.org }}',
+                repo: '${{ matrix.data.repo }}',
+                version: '${{ matrix.data.version }}',
+                arch: '${{ matrix.data.arch }}',
+                output: 'temp.apk'
+              });
+              console.log('Downloaded succesfully');
+            } catch (err) {
+              console.error('Error:', err);
+              process.exit(1);
+            }
+          }
+          run();
+          "
       - name: "Download Apk (from WanDouJia)"
         if: ${{ matrix.type == 'wandoujia' }}
         run: |
