@@ -10,6 +10,14 @@
       }
     },
     {
+      "nickname": "GBOX",
+      "type": "direct",
+      "data": {
+        "source": "direct",
+        "value": "https://appgallery.cloud.huawei.com/appdl/C106580399"
+      }
+    },
+    {
       "nickname": "NOVA-LAUNCHER",
       "type": "direct",
       "data": {
