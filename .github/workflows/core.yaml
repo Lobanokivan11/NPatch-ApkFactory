@@ -92,7 +92,7 @@ jobs:
           java -Djava.security.properties==custom_java.security \
             -cp "$JAVA_HOME/lib/bcprov-jdk15to18-1.73.jar:npatch.jar" top.nkbe.npatch.patch.NPatch \
             $new_filename.apk --npatch-keystore \
-            --useMicroG -v --manager -l 2 -o "$OUTPUT_DIR"
+            --useMicroG --injectdex -v --manager -l 2 -o "$OUTPUT_DIR"
           (
             cd "$OUTPUT_DIR"
             current_apk=$(ls *.apk | head -n 1)
