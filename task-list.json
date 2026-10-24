@@ -18,6 +18,14 @@
       }
     },
     {
+      "nickname": "HMSCORE",
+      "type": "direct",
+      "data": {
+        "source": "direct",
+        "value": "https://appgallery.cloud.huawei.com/appdl/C10132067"
+      }
+    },
+    {
       "nickname": "NOVA-LAUNCHER",
       "type": "direct",
       "data": {
