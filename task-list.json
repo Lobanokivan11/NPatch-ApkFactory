@@ -18,6 +18,14 @@
       }
     },
     {
+      "nickname": "APPGALLERY",
+      "type": "direct",
+      "data": {
+        "source": "direct",
+        "value": "https://appgallery.cloud.huawei.com/appdl/C27162"
+      }
+    },
+    {
       "nickname": "HMSCORE",
       "type": "direct",
       "data": {
