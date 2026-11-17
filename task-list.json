@@ -10,6 +10,15 @@
       }
     },
     {
+      "nickname": "STEAM",
+      "type": "direct",
+      "data": {
+        "source": "apkpure",
+        "value": "com.valvesoftware.android.steam.community",
+        "version": "latest"
+      }
+    },
+    {
       "nickname": "GBOX",
       "type": "direct",
       "data": {
